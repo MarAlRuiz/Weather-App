@@ -1,0 +1,172 @@
+body {
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#weather-container {
+    background: #ffffff;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+#weather-container:hover {
+    transform: scale(1.05);
+}
+
+h2, label, p {
+    color: #333;
+    margin: 12px 0;
+}
+
+input {
+    width: calc(100% - 24px);
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 2px solid #00b4db;
+    margin-top: 25px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #0083b0;
+}
+
+button {
+    background: #00b4db;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 25px;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0083b0;
+}
+
+#temp-div p {
+    font-size: 55px;
+    color: #00b4db;
+    margin-top: 10px;
+}
+
+#weather-info {
+    font-size: 18px;
+    color: #666;
+}
+
+#weather-icon {
+    width: 180px;
+    height: 180px;
+    margin: 20px auto;
+    display: none;
+}
+
+#hourly-forecast {
+    margin-top: 40px;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hourly-item {
+    flex: 0 0 auto;
+    width: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15px;
+    color: #333;
+}
+
+.hourly-item img {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 8px;
+}
+
+#hourly-heading {
+    color: #333;
+    margin-top: 15px;
+}
+
+/* Cloud Animation */
+.cloud {
+    position: absolute;
+    background-size: cover;
+    width: 200px;
+    height: 120px;
+    top: 10%;
+    animation: moveClouds 20s linear infinite;
+    opacity: 0.7;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Existing Cloud */
+.cloud-1 {
+    background: url('./assets/cloud1.png') no-repeat;
+    width: 400px;
+    height: 320px;
+    background-size: contain;
+    animation-duration: 15s;
+}
+
+/* New Cloud 2 */
+.cloud-2 {
+    background: url('./assets/cloud2.png') no-repeat;
+    width: 450px;
+    height: 390px;
+    top: 30%;
+    background-size: contain;
+    animation-duration: 17s;
+    animation-delay: -3s;
+}
+
+/* New Cloud 3 */
+.cloud-3 {
+    background: url('./assets/cloud3.png') no-repeat;
+    width: 480px;
+    height: 400px;
+    top: 50%;
+    background-size: contain;
+    animation-duration: 12s;
+    animation-delay: -1s;
+}
+
+/* New Cloud 4 */
+.cloud-4 {
+    background: url('./assets/cloud4.png') no-repeat;
+    width: 720px;
+    height: 630px;
+    top: 60%;
+    background-size: contain;
+    animation-duration: 19s;
+    animation-delay: -10s;
+}
+
+@keyframes moveClouds {
+    0% {
+        transform: translateX(-1500px); /* Start off-screen on the left */
+    }
+    100% {
+        transform: translateX(67vw); /* Move completely off the right side */
+    }
+}
